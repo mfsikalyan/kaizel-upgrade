@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Home, Building, Hospital, Hotel, Factory, Car, Landmark } from 'lucide-react';
 
-export default function ApplicationsSection() {
+export default function ApplicationsSection({ hideHeader = false }) {
   const applications = [
     {
       title: "Private Villas & Duplexes",
@@ -49,25 +49,27 @@ export default function ApplicationsSection() {
   ];
 
   return (
-    <section className="py-24 bg-kaizel-dark relative overflow-hidden">
+    <section className={hideHeader ? "py-2 sm:py-4 relative overflow-hidden" : "py-12 sm:py-16 bg-kaizel-dark relative overflow-hidden"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="space-y-3">
-            <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest flex items-center gap-2">
-              <span className="w-8 h-px bg-kaizel-accent" />
-              <span>BUILDING APPLICATION SECTORS</span>
+        {!hideHeader && (
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <div className="space-y-3">
+              <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest flex items-center gap-2">
+                <span className="w-8 h-px bg-kaizel-accent" />
+                <span>BUILDING APPLICATION SECTORS</span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
+                SOLUTIONS FOR <br />
+                <span className="text-kaizel-blue">EVERY BUILDING.</span>
+              </h2>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
-              SOLUTIONS FOR <br />
-              <span className="text-kaizel-blue">EVERY BUILDING.</span>
-            </h2>
-          </div>
 
-          <p className="text-sm text-kaizel-textMuted max-w-md">
-            Tailored vertical mobility configurations engineered for specific building codes, footfall densities, and structural constraints.
-          </p>
-        </div>
+            <p className="text-sm text-kaizel-textMuted max-w-md">
+              Tailored vertical mobility configurations engineered for specific building codes, footfall densities, and structural constraints.
+            </p>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {applications.map((app, idx) => {

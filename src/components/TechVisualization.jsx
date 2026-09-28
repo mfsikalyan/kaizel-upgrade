@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TECH_FEATURES } from '../data/technology';
 import { Cpu, ShieldAlert, Sliders, Eye, Scale, Volume2, Zap, PhoneCall, Check, AlertTriangle, Radio, Activity, Lock, Unlock, VolumeX, PhoneIncoming } from 'lucide-react';
 
-export default function TechVisualization() {
+export default function TechVisualization({ hideHeader = false }) {
   const [activeTechId, setActiveTechId] = useState(TECH_FEATURES[0].id);
   const [simulatedOverload, setSimulatedOverload] = useState(false);
   const [simulatedBeamTrip, setSimulatedBeamTrip] = useState(false);
@@ -420,26 +420,28 @@ export default function TechVisualization() {
   };
 
   return (
-    <section className="py-24 bg-kaizel-dark relative overflow-hidden">
+    <section className={hideHeader ? "py-2 sm:py-4 relative overflow-hidden" : "py-12 sm:py-16 bg-kaizel-dark relative overflow-hidden"}>
       {/* Background Tech Grid */}
       <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest flex items-center justify-center gap-2">
-            <span className="w-8 h-px bg-kaizel-accent" />
-            <span>CORE SPECIFICATIONS</span>
-            <span className="w-8 h-px bg-kaizel-accent" />
+        {!hideHeader && (
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+            <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest flex items-center justify-center gap-2">
+              <span className="w-8 h-px bg-kaizel-accent" />
+              <span>CORE SPECIFICATIONS</span>
+              <span className="w-8 h-px bg-kaizel-accent" />
+            </div>
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
+              POWER OF <span className="text-kaizel-blue">TECHNOLOGY.</span>
+            </h2>
+            <p className="text-sm text-kaizel-textMuted">
+              Explore the embedded microprocessors, safety locks, and drive mechanisms that power Kaizel lifts.
+            </p>
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
-            POWER OF <span className="text-kaizel-blue">TECHNOLOGY.</span>
-          </h2>
-          <p className="text-sm text-kaizel-textMuted">
-            Explore the embedded microprocessors, safety locks, and drive mechanisms that power Kaizel lifts.
-          </p>
-        </div>
+        )}
 
         {/* Interactive Engineering Schematic & Selector */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">

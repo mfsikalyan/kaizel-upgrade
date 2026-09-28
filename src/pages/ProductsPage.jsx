@@ -16,29 +16,29 @@ export default function ProductsPage({ onOpenQuoteModal, onOpenConfiguratorModal
   });
 
   return (
-    <div className="pt-24 pb-20 bg-kaizel-dark min-h-screen">
+    <div className="pt-16 sm:pt-20 pb-12 bg-kaizel-dark min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <Breadcrumbs items={[{ label: 'Products' }]} />
 
         {/* Page Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="space-y-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+          <div className="space-y-2">
             <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest flex items-center gap-2">
               <span className="w-8 h-px bg-kaizel-accent" />
               <span>FULL ELEVATOR & MOBILITY CATALOG</span>
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
+            <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
               ELEVATOR <span className="text-kaizel-blue">SOLUTIONS.</span>
             </h1>
             <p className="text-sm text-kaizel-textMuted max-w-xl">
-              Explore our complete range of 13 certified elevator systems, panoramic glass lifts, hospital stretchers, and automated mechanical car parking stackers.
+              Explore our complete range of certified elevator systems, panoramic glass lifts, stretchers, and car parking stackers.
             </p>
           </div>
 
           <button
             onClick={onOpenConfiguratorModal}
-            className="px-6 py-3.5 rounded-lg bg-kaizel-surface hover:bg-kaizel-surfaceHover border border-kaizel-borderDark hover:border-kaizel-blue text-white text-xs font-mono font-semibold uppercase tracking-wider flex items-center gap-2 shadow-glow"
+            className="px-5 py-3 rounded-lg bg-kaizel-surface hover:bg-kaizel-surfaceHover border border-kaizel-borderDark hover:border-kaizel-blue text-white text-xs font-mono font-semibold uppercase tracking-wider flex items-center gap-2 shadow-glow flex-shrink-0"
           >
             <Sparkles className="w-4 h-4 text-kaizel-accent" />
             <span>OPEN 3D CABIN STUDIO</span>
@@ -46,7 +46,7 @@ export default function ProductsPage({ onOpenQuoteModal, onOpenConfiguratorModal
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="glass-panel p-4 rounded-2xl border border-kaizel-borderDark mb-10 flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="glass-panel p-4 rounded-2xl border border-kaizel-borderDark mb-6 flex flex-col md:flex-row gap-4 items-center justify-between">
           
           {/* Search Box */}
           <div className="relative w-full md:w-80">

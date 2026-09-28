@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Send, CheckCircle2, ShieldCheck } from 'lucide-rea
 import { COMPANY_INFO } from '../data/company';
 import { PRODUCTS } from '../data/products';
 
-export default function LeadGenForm() {
+export default function LeadGenForm({ compact = false }) {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -33,7 +33,7 @@ export default function LeadGenForm() {
   };
 
   return (
-    <section className="py-24 bg-kaizel-dark relative overflow-hidden" id="quote-section">
+    <section className={compact ? "py-2 sm:py-4 relative overflow-hidden" : "py-12 sm:py-16 bg-kaizel-dark relative overflow-hidden"} id="quote-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">

@@ -3,7 +3,7 @@ import { PROJECTS, PROJECT_CATEGORIES } from '../data/projects';
 import { ArrowUpRight, MapPin, X, Building, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export default function ProjectsShowcase({ limit = null }) {
+export default function ProjectsShowcase({ limit = null, hideHeader = false }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeModalProject, setActiveModalProject] = useState(null);
 
@@ -14,24 +14,12 @@ export default function ProjectsShowcase({ limit = null }) {
   const displayedProjects = limit ? filteredProjects.slice(0, limit) : filteredProjects;
 
   return (
-    <section className="py-24 bg-kaizel-dark relative overflow-hidden">
+    <section className={hideHeader ? "py-2 sm:py-4 relative overflow-hidden" : "py-12 sm:py-16 bg-kaizel-dark relative overflow-hidden"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="space-y-3">
-            <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest flex items-center gap-2">
-              <span className="w-8 h-px bg-kaizel-accent" />
-              <span>INSTALLATION PORTFOLIO</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
-              ARCHITECTURAL <br />
-              <span className="text-kaizel-blue">SHOWCASE.</span>
-            </h2>
-          </div>
-
-          {/* Filter Pills */}
-          <div className="flex flex-wrap gap-2">
+        {/* Section Header or Filter Bar */}
+        {hideHeader ? (
+          <div className="flex flex-wrap gap-2 mb-6">
             {PROJECT_CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -46,7 +34,37 @@ export default function ProjectsShowcase({ limit = null }) {
               </button>
             ))}
           </div>
-        </div>
+        ) : (
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <div className="space-y-3">
+              <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest flex items-center gap-2">
+                <span className="w-8 h-px bg-kaizel-accent" />
+                <span>INSTALLATION PORTFOLIO</span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
+                ARCHITECTURAL <br />
+                <span className="text-kaizel-blue">SHOWCASE.</span>
+              </h2>
+            </div>
+
+            {/* Filter Pills */}
+            <div className="flex flex-wrap gap-2">
+              {PROJECT_CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 rounded-md text-xs font-mono font-medium transition-all ${
+                    selectedCategory === cat
+                      ? 'bg-kaizel-blue text-white shadow-glow'
+                      : 'bg-kaizel-surface hover:bg-kaizel-surfaceHover text-kaizel-textMuted hover:text-white border border-kaizel-borderDark'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

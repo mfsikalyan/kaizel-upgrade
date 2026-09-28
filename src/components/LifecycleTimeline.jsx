@@ -2,25 +2,27 @@ import React, { useState } from 'react';
 import { COMPANY_INFO } from '../data/company';
 import { CheckCircle2, ChevronRight } from 'lucide-react';
 
-export default function LifecycleTimeline() {
+export default function LifecycleTimeline({ compact = false, hideHeader = false }) {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="py-24 bg-kaizel-surface border-y border-kaizel-borderDark relative overflow-hidden">
+    <section className={hideHeader ? "py-4 relative overflow-hidden" : compact ? "py-8 sm:py-12 bg-kaizel-surface border-y border-kaizel-borderDark relative overflow-hidden" : "py-12 sm:py-16 bg-kaizel-surface border-y border-kaizel-borderDark relative overflow-hidden"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest">
-            PROJECT LIFECYCLE MANAGEMENT
+        {!hideHeader && (
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+            <div className="text-xs font-mono text-kaizel-accent uppercase tracking-widest">
+              PROJECT LIFECYCLE MANAGEMENT
+            </div>
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
+              FROM INSTALLATION TO <br />
+              <span className="text-kaizel-blue">LIFETIME SUPPORT.</span>
+            </h2>
+            <p className="text-sm text-kaizel-textMuted">
+              End-to-end execution framework ensuring safety, quality compliance, and ongoing operational excellence.
+            </p>
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
-            FROM INSTALLATION TO <br />
-            <span className="text-kaizel-blue">LIFETIME SUPPORT.</span>
-          </h2>
-          <p className="text-sm text-kaizel-textMuted">
-            End-to-end execution framework ensuring safety, quality compliance, and ongoing operational excellence.
-          </p>
-        </div>
+        )}
 
         {/* Desktop Interactive Horizontal Timeline */}
         <div className="hidden lg:block">

@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Building2 } from 'lucide-react';
 
-export default function CompanyIntro() {
+export default function CompanyIntro({ compact = false }) {
   return (
-    <section className="py-24 bg-kaizel-dark relative overflow-hidden">
+    <section className={compact ? "py-4 relative overflow-hidden" : "py-12 sm:py-16 bg-kaizel-dark relative overflow-hidden"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -16,9 +16,9 @@ export default function CompanyIntro() {
               <span>WHO WE ARE</span>
             </div>
 
-            <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight uppercase">
-              POWER OF <br />
-              <span className="text-kaizel-blue">TECHNOLOGY.</span>
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight uppercase">
+              ENGINEERING <br />
+              <span className="text-kaizel-blue">PRECISION.</span>
             </h2>
 
             <div className="relative rounded-2xl overflow-hidden border border-kaizel-borderDark aspect-[4/3] group shadow-card-dark">
