@@ -42,14 +42,14 @@ export default function Navbar({ onOpenQuoteModal, onOpenConfiguratorModal }) {
           : 'bg-gradient-to-b from-[#050811]/95 via-[#091226]/80 to-transparent backdrop-blur-xl pb-1'
       }`}>
 
-        {/* Top Info Bar - Compact Micro Badges */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1.5 pb-0.5 flex justify-between items-center text-[10px]">
+        {/* Top Info Bar - Desktop & Tablet Only (Hidden on Mobile) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-1.5 pb-0.5 hidden md:flex justify-between items-center text-[10px]">
           
           {/* Left Certification Credentials - Floating Micro Badges */}
           <div className="flex items-center gap-2">
             <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-950/60 via-cyan-950/40 to-blue-950/60 border border-cyan-500/30 text-cyan-200 font-mono text-[10px] px-2.5 py-0.5 rounded-full shadow-[0_0_12px_rgba(6,182,212,0.12)] backdrop-blur-md">
               <ShieldCheck className="w-3 h-3 text-cyan-400 animate-pulse" />
-              <span className="font-bold text-white tracking-wide">ISO 9001 & ISO 14001</span>
+              <span className="font-bold text-white tracking-wide">ISO 9001 • 14001 • 45001</span>
               <span className="text-cyan-400 font-semibold hidden lg:inline">CERTIFIED</span>
             </div>
 
