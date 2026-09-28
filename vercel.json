@@ -1,5 +1,6 @@
 {
   "framework": "vite",
+  "installCommand": "npm install --include=optional",
   "buildCommand": "vite build",
   "outputDirectory": "dist",
   "rewrites": [
